@@ -7,7 +7,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },  
   {
-    path: '/editar:id',
+    path: '/editar/:id',
     name: 'Editar',
     component: () => import(/* webpackChunkName: "editar" */ '../views/Editar.vue')
   },  

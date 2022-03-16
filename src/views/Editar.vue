@@ -1,9 +1,26 @@
 <template>
-    Editar {{$route.params.id}}
+    <!-- Editar {{$route.params.id}} - {{ tarea }} -->
+    <form @submit="updateTarea(tarea)">
+        <Input :tarea="tarea" />
+    </form>
 </template>
 
 <script>
-    export default {
+    import {mapState, mapActions} from 'vuex'
+    import Input from '../components/Input.vue'
 
+    export default {
+        components:{
+            Input
+        },
+        computed: {
+            ...mapState(['tarea'])    
+        },
+        methods: {
+            ...mapActions(['setTarea', 'updateTarea'])
+        },
+        created() {
+            this.setTarea(this.$route.params.id)
+        },
     }
 </script>
